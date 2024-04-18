@@ -1,0 +1,29 @@
+package cafeteras
+
+import org.koin.core.annotation.Singleton
+import java.util.*
+
+@Singleton
+class CalentadorElectrico : Calentador {
+    private val id: UUID = UUID.randomUUID()
+
+    // true si esta calentando, false si esta apagado
+    private var calentando = false
+
+    override fun encender() {
+        calentando = true
+        println("~ ~ calentando ~ ~ ~")
+    }
+
+    override fun apagar() {
+        calentando = false
+    }
+
+    override fun estaCaliente(): Boolean {
+        return calentando
+    }
+
+    override fun toString(): String {
+        return "Calentador Electrico(id=$id)"
+    }
+}
